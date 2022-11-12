@@ -1,6 +1,6 @@
-let administrators = [
+let users = [
     {
-      id: "admin1",
+      
       name: "Eric",
       lastName: "Rodriguez",
       role:"admmin",
@@ -13,7 +13,7 @@ let administrators = [
       logged: true,
     },
     {
-      id: "admin2",
+      
       name: "Erica",
       lastName: "Perez",
       role:"admmin",
@@ -26,7 +26,7 @@ let administrators = [
       logged: true,
     },
     {
-      id: "admin3",
+      
       name: "Leandro",
       lastName: "Gianelli",
       role:"admmin",
@@ -39,7 +39,7 @@ let administrators = [
       logged: true,
     },
     {
-      id: "admin4",
+      
       name: "Sebastian",
       lastName: "Fenza",
       role:"admmin",
@@ -58,7 +58,7 @@ require('../../config/database')
 
 const User = require('../User')
 
-administrators.forEach(element=>{
+users.forEach(element=>{
     User.create({
 
         name:element.name,
