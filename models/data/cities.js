@@ -86,15 +86,6 @@ const cities1 = [
       userId: "636f1edc14f79b76f5e442bc",
     },
     {
-
-      name: "Chefchaouen",
-      continent: "Africa",
-      photo:
-        "https://media.traveler.es/photos/61375f04030de94d067fbfd0/master/w_1920%2Cc_limit/213219.jpg",
-      population: 2100000,
-      userId: "636f1edc14f79b76f5e442bb",
-    },
-    {
       name: "Chiang Mai",
       continent: "Asia",
       photo:"https://media.traveler.es/photos/61375f0432d932c80fcb80f9/master/w_1920%2Cc_limit/213175.jpg",
