@@ -69,7 +69,7 @@ administrators.forEach(element=>{
         email:element.email,
         password:element.password ,
         code:element.code,
-        verifed:element.verified ,
+        verified:element.verified ,
         logged:element.logged,
     }
     )
