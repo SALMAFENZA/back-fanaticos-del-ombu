@@ -2,6 +2,8 @@ let router= require('express').Router()
 
 let users= require('./users')
 
-router.use('/api/users',users)
+let cities= require('./cities')
 
+router.use('/api/users',users),
+router.use('/api/cities',cities)
 module.exports = router;
