@@ -1,13 +1,13 @@
-const City = require('../models/City')
+const Hotel = require('../models/Hotel')
 const controller = {
 
     create: async ( req, res) =>{
 try{
-    let new_city = await City.create(req.body)
+    let new_hotel = await Hotel.create(req.body)
     res.status(201).json({
-    id: new_city._id,
+    id: new_hotel._id,
     success: true,
-    message:"The City was created successfully"
+    message:"The Hotel was created successfully"
     })
 } catch(error){
     res.status(400).json({
