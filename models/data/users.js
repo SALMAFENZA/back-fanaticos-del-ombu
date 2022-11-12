@@ -1,4 +1,4 @@
-let administrators = [
+let users = [
     {
       id: "admin1",
       name: "Eric",
@@ -58,7 +58,7 @@ require('../../config/database')
 
 const User = require('../User')
 
-administrators.forEach(element=>{
+users.forEach(element=>{
     User.create({
 
         name:element.name,
