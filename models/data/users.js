@@ -1,6 +1,6 @@
 let users = [
     {
-      id: "admin1",
+      
       name: "Eric",
       lastName: "Rodriguez",
       role:"admmin",
@@ -13,7 +13,7 @@ let users = [
       logged: true,
     },
     {
-      id: "admin2",
+      
       name: "Erica",
       lastName: "Perez",
       role:"admmin",
@@ -26,7 +26,7 @@ let users = [
       logged: true,
     },
     {
-      id: "admin3",
+      
       name: "Leandro",
       lastName: "Gianelli",
       role:"admmin",
@@ -39,7 +39,7 @@ let users = [
       logged: true,
     },
     {
-      id: "admin4",
+      
       name: "Sebastian",
       lastName: "Fenza",
       role:"admmin",
