@@ -1,13 +1,9 @@
-let router= require('express').Router()
+var express = require('express');
+var router = express.Router();
 
-let users= require('./users')
-
-let cities= require('./cities')
-
-let hotels= require('./hotels')
-
-router.use('/api/users',users),
-router.use('/api/cities',cities)
-router.use('/api/hotels', hotels)
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
 
 module.exports = router;
