@@ -6,8 +6,11 @@ let cities= require('./cities')
 
 let hotels= require('./hotels')
 
+let shows= require('./shows')
+
 router.use('/api/users',users),
 router.use('/api/cities',cities)
 router.use('/api/hotels', hotels)
+router.use('/api/shows',shows)
 
 module.exports = router;

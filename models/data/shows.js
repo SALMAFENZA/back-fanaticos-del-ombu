@@ -1,5 +1,6 @@
 let shows = [
   {
+    hotelId:"63709eeb35535e66e8f37df4",
     name: "From the futuristic atmosphere to the interactive flamenco",
     description:
       "a futuristic party for 2,000 people, in which different artists participated: LED stilt walkers that danced among the public playing with their lasers and cheering, Light Juggling passes or personalized LED juggling every hour showing the logos of the sponsors, plasma effects, fire , lightning… The evening was enlivened by a saxophonist who interpreted her pieces on Disco, House themes… while the dancers with fluorine body paint gave the party a sensual touch, to the rhythm of the laser show.",
@@ -10,6 +11,7 @@ let shows = [
     userId: "636f39a6a1681cf2906114a3",
   },
   {
+    hotelId:"63709eeb35535e66e8f37df4",
     name: "An air show and water dance",
     description:
       "Live flamenco chill music and artists in white costumes who led the attendees towards the pool, where a spectacular staging was carried out on the water. The Gala began with the arrival of a group of artists who seemed to have come from the sea and who gave way to the awards ceremony, accompanied by a music ceremony and which closed with a contemporary and traditional flamenco show. As night fell, an aerial show came from the air that crossed the space and interacted with the attendees.",
@@ -20,6 +22,7 @@ let shows = [
     userId: "636f39a6a1681cf2906114a2",
   },
   {
+    hotelId:"63709eeb35535e66e8f37df5",
     name: "Air Love Story and Mirror Ball Show",
     description:
       ", Staff Events designed a 360º production and staging with Humanity At Music, composed of eight musical pieces performed by multiple artists from different disciplines: musicians, composers, writers, actors and illustrators, who presented a story through a show",
@@ -30,6 +33,7 @@ let shows = [
     userId: "636f39a6a1681cf2906114a5",
   },
   {
+    hotelId:"63709eeb35535e66e8f37df5",
     name: "The show must go on",
     description:
       "Impact show, for more than three hours, where more than 1000 people could enjoy, through a dynamic show in which the music of Music Has No Limits served to connect among them.",
@@ -40,6 +44,7 @@ let shows = [
     userId: "636f39a6a1681cf2906114a4",
   },
   {
+    hotelId:"63709eeb35535e66e8f37df6",
     name: "Thematic  event",
     description:
       "About 20 artists demonstrated their talent, framed under the Music Hall theme. A fusion that mixed magic, cabaret, circus and technology.We welcome everyone with joy and devotion showing them the different areas. Among them, interactive table women who offered tastings at the cocktail and a dressing room open to the public where they could make up, dress and be photographed live.",
@@ -50,6 +55,7 @@ let shows = [
     userId: "636f1edc14f79b76f5e442ba",
   },
   {
+    hotelId:"63709eeb35535e66e8f37df6",
     name: "Custom party",
     description:
       "immersive experience thanks to video mapping on the walls simulating various scenes such as a wall full of light bulbs, a circus tent or a large red curtain that opened and closed according to the scenic audiovisual content of each show. great prizes for the best costumes.",
@@ -60,6 +66,7 @@ let shows = [
     userId: "636f1edc14f79b76f5e442bc",
   },
   {
+    hotelId:"63709eeb35535e66e8f37df7",
     name: "Be Geometry",
     description:
       "Geometrik is geometry personified in artists who wear inflatable costumes, they take shape as the show progresses. A game of different visual angles that surprises the viewer. Geometry and white surfaces that can be used as projection screens, achieving an innovative show that can be adapted to any theme",
@@ -70,6 +77,7 @@ let shows = [
     userId: "636f1edc14f79b76f5e442bb",
   },
   {
+    hotelId:"63709eeb35535e66e8f37df7",
     name: "Set Crytal",
     description:
       "Artists located on 2-meter-high podiums, with costumes designed and manufactured from 5mm-thick laser-cut mirrors, offered visual entertainment that added to the fabulous scenery of the event. The mirrors caused flashes of light and the dance movements of the dancers captivated the public, hypnotizing them thanks to their suggestive and mysterious dances with light effects and visual effects.",
@@ -80,6 +88,7 @@ let shows = [
     userId: "636f39a6a1681cf2906114a3",
   },
   {
+    hotelId:"63709eeb35535e66e8f37df8",
     name: "Akuiris",
     description:
       "Artistic and technical production tailor-made for the occasion, designing several animations, of which Akuiris stands out, which represents the beauty of the depths of the Mediterranean Sea in a contemporary way. Let it surprise you",
@@ -90,6 +99,7 @@ let shows = [
     userId: "636f39a6a1681cf2906114a2",
   },
   {
+    hotelId:"63709eeb35535e66e8f37df8",
     name: "Tradition",
     description:
       "Numerous dancers appeared in the audience and took to the stage to perform dances to traditional ballroom music. A guiding thread taken care of down to the last detail with the performance of the guitarists who liven up the show The performance of the batucada with flamenco airs brings the evening to a climax.",
@@ -100,6 +110,7 @@ let shows = [
     userId: "636f39a6a1681cf2906114a5",
   },
   {
+    hotelId:"63709eeb35535e66e8f37df9",
     name: "Miranda",
     description:
       "Miranda! is an Argentine pop band led by singers Alejandro Sergi and Juliana Gattas. On the world POP scene since 2001",
@@ -110,6 +121,7 @@ let shows = [
     userId: "636f39a6a1681cf2906114a4",
   },
   {
+    hotelId:"63709eeb35535e66e8f37df9",
     name: "Don Osvaldo",
     description:
       "Don Osvaldo is an Argentine rock band, presents its new song Estampita, sweet and deep melody. get ready",
@@ -127,6 +139,7 @@ const Shows = require("../Show");
 
 shows.forEach((element) => {
   Shows.create({
+    hotelId: element.hotelId,
     name: element.name,
     description: element.description,
     photo: element.photo,
