@@ -30,7 +30,7 @@ const controller = {
       } else {
         res.status(400).json({
           success: false,
-          message: "The Show was notfound created successfully",
+          message: "The Show was not found",
         });
       }
     } catch (error) {
