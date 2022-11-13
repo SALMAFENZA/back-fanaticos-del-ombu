@@ -7,8 +7,8 @@ photo: {type:String, required:true},
 description: {type:String, required:true},
 price: {type:Number, required:true},
 duration: {type:Number, required:true},
-userId: {Type: mongoose.Types.ObjectId, ref:'users', required:true}
+userId: {Type: mongoose.Types.ObjectId, ref:'users', required:true}  
 })
 
-const City= mongoose.model("itineraries", schema)
+const Itinerary= mongoose.model("itineraries", schema)
 module.exports= Itinerary
