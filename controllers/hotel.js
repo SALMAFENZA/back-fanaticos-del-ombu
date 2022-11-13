@@ -36,6 +36,28 @@ try{
         success: false,
         message: error.message
     })
+}},
+    destroy: async (req, res) =>{
+        let {id}= req.params
+        try{
+            let delate_hotel= await Hotel.findOneAndDelete({_id:id})
+        if(delate_hotel){
+            res.status(200).json({
+            success: true,
+            message:"The Hotel was successfully removed"
+            })
+        }else{
+            res.status(404).json({
+                success: false,
+                message: "The Hotel was not found"
+        })
+        }
+    }catch(error){
+        res.status(404).json({
+        success: false,
+        message: error.message
+    })
 }}
 }
+
 module.exports = controller
