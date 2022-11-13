@@ -1,5 +1,6 @@
 let router = require('express').Router()
-let {create} = require('../controllers/city')
+let {create , getAll} = require('../controllers/city')
 
 router.post('/',create)
+router.get('/',getAll)
 module.exports = router;
