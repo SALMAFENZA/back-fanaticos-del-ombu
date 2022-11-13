@@ -21,10 +21,16 @@ const controller = {
 
     if (req.query.continent) {
       query.continent = req.query.continent;
-      let regExp = new RegExp(`^${query.continent}`, "i");
+      let regExp = new RegExp(`^${query.continent }`, "i");
       query.continent = regExp;
-    }   
+    }      
+    if (req.query.name) {
+      query.name = req.query.name;
+      let regExp = new RegExp(`^${query.name }`, "i");
+      query.name = regExp;
+    }      
   
+
     try {
       console.log(query)
       let city = await City.find(query);
