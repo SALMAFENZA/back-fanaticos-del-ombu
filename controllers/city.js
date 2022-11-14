@@ -1,5 +1,6 @@
 const City = require("../models/City");
 const controller = {
+
   create: async (req, res) => {
     try {
       let new_city = await City.create(req.body);
