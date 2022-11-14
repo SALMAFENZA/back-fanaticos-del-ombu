@@ -17,23 +17,22 @@ const controller = {
     }
   },
 
-  getAll: async (req, res) => {    
+  getAll: async (req, res) => {
     let query = {};
 
     // if (req.query.continent) {
     //   query.continent = req.query.continent;
     //   let regExp = new RegExp(`^${query.continent }`, "i");
     //   query.continent = regExp;
-    // }      
+    // }
     if (req.query.name) {
       query.name = req.query.name;
-      let regExp = new RegExp(`^${query.name }`, "i");
+      let regExp = new RegExp(`^${query.name}`, "i");
       query.name = regExp;
-    }      
-  
+    }
 
     try {
-      console.log(query)
+      console.log(query);
       let city = await City.find(query);
       res.status(200).json({
         city: city,
@@ -48,5 +47,33 @@ const controller = {
     }
   },
 
+  getOne: async (req, res) => {
+    const { id } = req.params;
+    try {
+      let city = await City.findOne({ _id: id }).populate("userId", {
+        photo: 1,
+        name: 1,
+      });
+
+      if (city) {
+        res.status(200).json({
+          name: city.userId.name,
+          photo: city.userId.photo,
+          success: true,
+          message: "The city was found successfully",
+        });
+      } else {
+        res.status("404").json({
+          message: "No city could be found",
+          success: false,
+        });
+      }
+    } catch (error) {
+      res.status(400).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  },
 };
 module.exports = controller;
