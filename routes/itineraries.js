@@ -1,8 +1,9 @@
 let router = require('express').Router()
-let {create , getallbycity} = require('../controllers/itinerary')
+let {create , getallbycity,editItinerary} = require('../controllers/itinerary')
 
 router.post('/', create )
 router.get('/',getallbycity)
-// router.get('/:id',getallbycity)
+router.put('/:id',editItinerary)
+
 
 module.exports = router;
