@@ -1,5 +1,6 @@
 const Show = require("../models/Show");
 const controller = {
+  
   create: async (req, res) => {
     try {
       let show = await Show.create(req.body);
