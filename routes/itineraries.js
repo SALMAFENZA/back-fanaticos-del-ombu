@@ -5,4 +5,5 @@ router.post('/', create )
 router.get('/',getallbycity)
 router.put('/:id',editItinerary)
 
+
 module.exports = router;
