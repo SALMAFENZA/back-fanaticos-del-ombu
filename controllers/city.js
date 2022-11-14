@@ -91,6 +91,6 @@ const controller = {
         message: error.message,
       });
     }
-  },
+  };
 };
 module.exports = controller;
