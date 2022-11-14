@@ -83,7 +83,7 @@ const controller = {
       res.status(200).json({
         response: cityeditated,
         success: true,
-        message: "The City was updated successfully",
+        message: "The City updated successfully",
       });
     } catch (error) {
       res.status(400).json({
@@ -91,6 +91,24 @@ const controller = {
         message: error.message,
       });
     }
+  },
+  deleteCity: async (req, res) => {
+    const { id } = req.params;
+
+    try {
+      await City.findOneAndDelete({ _id:id })
+      res.status(200).json({
+        success: true,
+        message: "Deleted",
+      });
+    } catch (error) {
+      res.status(400).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  },
+
   };
 };
 module.exports = controller;
