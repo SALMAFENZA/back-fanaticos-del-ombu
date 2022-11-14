@@ -9,10 +9,8 @@ let shows= require('./shows')
 
 router.use('/api/itineraries',itineraries)
 router.use('/api/users',users),
-router.use('/api/cities',cities),
-router.use('/api/itineraries',itineraries)
+router.use('/api/cities',cities)
 router.use('/api/hotels', hotels)
 router.use('/api/shows',shows)
-
 
 module.exports = router;
