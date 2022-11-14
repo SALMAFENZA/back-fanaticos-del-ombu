@@ -6,4 +6,4 @@ router.get('/',getallbycity)
 router.put('/:id',editItinerary)
 router.delete('/:id',deleteItinerary),
 
-module.exports = router;   
+module.exports = router;
