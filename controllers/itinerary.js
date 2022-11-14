@@ -48,6 +48,22 @@ const controller = {
       });
     }
   },
-};
+  editItinerary: async (req, res) => {
+    const { id } = req.params;
 
+    try {
+      let Itineraryeditated = await Itinerary.findOneAndUpdate({ _id:id }, req.body, { new: true });
+      res.status(200).json({
+        response:Itineraryeditated,
+        success: true,
+        message: "Itinerary updated successfully",
+      });
+    } catch (error) {
+      res.status(400).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  },
+};
 module.exports = controller;
