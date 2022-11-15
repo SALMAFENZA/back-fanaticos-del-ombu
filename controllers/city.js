@@ -20,16 +20,15 @@ const controller = {
   getAll: async (req, res) => {
     let query = {};
 
-    // if (req.query.continent) {
-    //   query.continent = req.query.continent;
-    //   let regExp = new RegExp(`^${query.continent }`, "i");
-    //   query.continent = regExp;
-    // }
-    if (req.query.name) {
-      query.name = req.query.name;
-      let regExp = new RegExp(`^${query.name}`, "i");
-      query.name = regExp;
-    }
+        if (req.query.continent) {
+            query = { continent: req.query.continent };
+        }
+        if (req.query.name) {
+            query = {
+                ...query,
+                name: { $regex: req.query.name, $options: "i" },
+            };
+        }
 
     try {
       console.log(query);
