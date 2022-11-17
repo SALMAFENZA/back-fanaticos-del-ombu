@@ -4,6 +4,6 @@ let {create, update, destroy, getallbyshow}= require("../controllers/show")
 router.post("/",create)
 router.patch("/:id",update)
 router.delete("/:id", destroy)
-router.get("/:hotelId",getallbyshow)
+router.get("/",getallbyshow)
 
 module.exports= router;
