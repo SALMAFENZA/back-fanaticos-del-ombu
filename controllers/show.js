@@ -90,10 +90,11 @@ const controller = {
 },
 
 getallbyshow: async (req, res) =>{
-  let query = req.query
-  if (req.query) {
-    console.log(req.query)
-    query.hotelId = req.query.hotelId;
+  let query = {}
+  if (req.query.hotelId) {
+    query= {
+      hotelId:req.query.hotelId
+    };
   }   
   try {      
     let shows = await Show.find(query);

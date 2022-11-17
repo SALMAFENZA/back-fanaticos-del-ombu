@@ -67,7 +67,7 @@ read: async (req,res) => {
         query = {name: {"$regex": req.query.name,$options:'i'}} 
     }
     if(req.query.order){
-        order = req.query.order
+        order = {name:req.query.order}
     }
     console.log(req.query)
     try{
@@ -113,7 +113,7 @@ readOne: async (req, res) =>{
             message: error.message,
         });
     }
-},
+}, 
 }
 
 module.exports = controller
