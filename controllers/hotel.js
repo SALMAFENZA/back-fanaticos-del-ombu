@@ -72,13 +72,13 @@ read: async (req,res) => {
     console.log(req.query)
     try{
         let all = await Hotel.find(query).sort(order);
-        if(all){
+        if(all.length >= 1){
             res.status(200).json({
                 response: all,
                 success: true,
                 message: 'the hotel was successfully found',
             })
-        }else{
+        }else if(all.length === 0){
             res.status(404).json({
                 success: false,
                 message: 'the hotel was not found',
