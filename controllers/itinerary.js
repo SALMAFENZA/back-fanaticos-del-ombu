@@ -16,21 +16,22 @@ const controller = {
     }
   },
   getallbycity: async (req, res) =>{
-    let query = req.query
-    if (req.query) {
-      console.log(req.query)
-      query.cityId = req.query.cityId;
-    }   
+    let query = {}
+   if(req.query.cityId){
+    query={
+      cityId:req.query.cityId
+    }
+    }
     try {      
       let itinerary = await Itinerary.find(query);
     if (itinerary){    
-      res.status(201).json({
+      res.status(200).json({
         response: itinerary,
         success: true,
-        message: "The Itineraries loaded successfully",})
+        message: "Itineraries loaded successfully",})
     }else{
         res.status("404").json({
-          message: "No itineraries could be found",
+          message: "Itineraries could not be found",
           success: false
         });
     }

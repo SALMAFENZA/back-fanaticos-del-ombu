@@ -19,7 +19,6 @@ const controller = {
 
   getAll: async (req, res) => {
     let query = {};
-
         if (req.query.continent) {
           query = { continent: req.query.continent };
         }
@@ -29,7 +28,6 @@ const controller = {
                 name: { $regex: req.query.name, $options: "i" },
             };
         }
-
     try {
       console.log(query);
       let city = await City.find(query);
