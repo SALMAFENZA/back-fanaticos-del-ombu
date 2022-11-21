@@ -7,7 +7,7 @@ const controller = {
       res.status(201).json({
         id: new_city._id,
         success: true,
-        message: "The City was created successfully",
+        message: "City created successfully",
       });
     } catch (error) {
       res.status(400).json({
@@ -19,9 +19,8 @@ const controller = {
 
   getAll: async (req, res) => {
     let query = {};
-
         if (req.query.continent) {
-            query = { continent: req.query.continent };
+          query = { continent: req.query.continent };
         }
         if (req.query.name) {
             query = {
@@ -29,7 +28,6 @@ const controller = {
                 name: { $regex: req.query.name, $options: "i" },
             };
         }
-
     try {
       console.log(query);
       let city = await City.find(query);
@@ -49,15 +47,10 @@ const controller = {
   getOne: async (req, res) => {
     const { id } = req.params;
     try {
-      let city = await City.findOne({ _id: id }).populate("userId", {
-        photo: 1,
-        name: 1,
-      });
-
+      let city = await City.findOne({ _id: id }).populate({path:'userId',select:'name photo -_id'});
       if (city) {
         res.status(200).json({
-          name: city.userId.name,
-          photo: city.userId.photo,
+          response: city,
           success: true,
           message: "The city was found successfully",
         });

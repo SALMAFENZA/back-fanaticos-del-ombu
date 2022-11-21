@@ -15,29 +15,23 @@ const controller = {
       });
     }
   },
-  getallbycity: async (req, res) => {
-    let query = req.query
-
-    if (req.query) {
-      console.log(req.query)
-      query.cityId = req.query.cityId;
-    }   
-
-
+  getallbycity: async (req, res) =>{
+    let query = {}
+   if(req.query.cityId){
+    query={
+      cityId:req.query.cityId
+    }
+    }
     try {      
       let itinerary = await Itinerary.find(query);
-
-
-      if (itinerary){    
-
-      res.status(201).json({
+    if (itinerary){    
+      res.status(200).json({
         response: itinerary,
         success: true,
-        message: "The Itineraries loaded successfully",
-
-      })}else{
+        message: "Itineraries loaded successfully",})
+    }else{
         res.status("404").json({
-          message: "No itineraries could be found",
+          message: "Itineraries could not be found",
           success: false
         });
     }
@@ -51,14 +45,19 @@ const controller = {
 
   editItinerary: async (req, res) => {
     const { id } = req.params;
-
     try {
       let Itineraryeditated = await Itinerary.findOneAndUpdate({ _id:id }, req.body, { new: true });
+      if (Itineraryeditated) {
       res.status(200).json({
-        response:Itineraryeditated,
         success: true,
         message: "Itinerary updated successfully",
       });
+    } else {
+      res.status(400).json({
+        success: false,
+        message: "Itinerary was not found",
+      });
+    }
     } catch (error) {
       res.status(400).json({
         success: false,
@@ -69,11 +68,18 @@ const controller = {
   deleteItinerary: async (req, res) => {
     const { id } = req.params;
     try {
-      await Itinerary.findOneAndDelete({ _id:id })
-      res.status(200).json({
-        success: true,
-        message: "Deleted",
-      });
+      let delate_itinerary = await Itinerary.findOneAndDelete({ _id: id });
+      if (delate_itinerary) {
+        res.status(200).json({
+          success: true,
+          message: "itinerary successfully removed",
+        });
+      } else {
+        res.status(404).json({
+          success: false,
+          message: "itinerary was not found",
+        });
+      }
     } catch (error) {
       res.status(400).json({
         success: false,
