@@ -1,8 +1,8 @@
 let router = require('express').Router()
-let {create , getallbycity,editItinerary,deleteItinerary} = require('../controllers/itinerary')
+let {create , getAll,editItinerary,deleteItinerary} = require('../controllers/itinerary')
 
 router.post('/', create )
-router.get('/',getallbycity)
+router.get('/',getAll)
 router.put('/:id',editItinerary)
 router.delete('/:id',deleteItinerary),
 
