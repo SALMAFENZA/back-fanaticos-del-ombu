@@ -15,13 +15,19 @@ const controller = {
       });
     }
   },
-  getallbycity: async (req, res) =>{
+  getAll: async (req, res) =>{
     let query = {}
+    if (req.query.userId) {
+      query = {
+          userId: req.query.userId
+      };
+    }
    if(req.query.cityId){
     query={
       cityId:req.query.cityId
     }
     }
+    
     try {      
       let itinerary = await Itinerary.find(query);
     if (itinerary){    
