@@ -113,7 +113,8 @@ readOne: async (req, res) =>{
             message: error.message,
         });
     }
-}, 
+},
+
 }
 
 module.exports = controller
