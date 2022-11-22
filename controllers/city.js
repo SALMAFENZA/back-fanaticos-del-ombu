@@ -19,9 +19,18 @@ const controller = {
 
   getAll: async (req, res) => {
     let query = {};
-        if (req.query.continent) {
-          query = { continent: req.query.continent };
+        if (req.query.userId) {
+        query = {
+          ...query,
+          userId: req.query.userId.split(",")};
         }
+
+        if (req.query.continent) {
+        query = {
+          ...query,
+          continent: req.query.continent.split(",")};
+        }
+        
         if (req.query.name) {
             query = {
                 ...query,
@@ -43,7 +52,6 @@ const controller = {
       });
     }
   },
-
   getOne: async (req, res) => {
     const { id } = req.params;
     try {
@@ -100,5 +108,6 @@ const controller = {
       });
     }
   },
+  
 };
 module.exports = controller;
