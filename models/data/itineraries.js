@@ -8,7 +8,7 @@ itineraries.create(
 
         {
             id: 'tourist1',
-            citild: '636fca0425d63341f230ebc3',
+            cityId: '637e6148453168af4b0456d8',
             name : 'Canal Cruise',
             photo:[
                 'https://media.tacdn.com/media/attractions-splice-spp-674x446/09/44/4d/fc.jpg',
@@ -18,11 +18,11 @@ itineraries.create(
             description: 'Cruise Amsterdams famous canals during this 75-minute boat tour. Climb aboard the classic wooden saloon boat and sit back and enjoy the beautiful city passing by. See landmarks as you savor Dutch cheese and sip a drink.',
             price: 40,
             duration: 75,
-            userId:  '636f1edc14f79b76f5e442b9',
+            userId:  '637e5f6eb770505b2535a175',
         },
         {
             id: 'tourist2',
-            citild: '636fca0425d63341f230ebc1',
+            cityId: '637e6148453168af4b0456d8',
             name: 'Van Gogh Museum',
             photo: [
                 'https://media.tacdn.com/media/attractions-splice-spp-674x446/06/fb/63/54.jpg',
@@ -32,11 +32,11 @@ itineraries.create(
             description: 'Skip the lines at the Van Gogh Museum in Amsterdam and admire Van Goghs works with your own private guide. Get priority access and explore the highlights of the museum, home to the worlds largest collection of Vincent van Gogh art. Let your guide introduce you to sublime masterpieces like "Sunflowers," learn the significance of some lesser-known paintings, and see pieces by artists who influenced his style, such as Gauguin and Monet. A perfect introduction to the museum and the life and work of the great artist.',
             price: 120,
             duration: 150,
-            userId: '636f1edc14f79b76f5e442ba',
+            userId: '637e5f6eb770505b2535a175',
         },
         {
             id: 'tourist3',
-            citild: '636fca0425d63341f230ebc2',
+            cityId: '637e6148453168af4b0456d9',
             name: 'Tour of the Sagrada Familia',
             photo: [
                 'https://media.tacdn.com/media/attractions-splice-spp-674x446/07/74/ea/0c.jpg',
@@ -46,11 +46,11 @@ itineraries.create(
             description: 'Skip the long lines of tourists trying to enter Gaudi s La Sagrada Familia on this priority-access tour of this modernist masterpiece. Accompanied by a guide, head straight inside for a fascinating glimpse into the history of the UNESCO World Heritage-listed cathedral. Admire the opulent ceilings and stained glass windows while learning about the life of the building s charismatic creator. Visit the museum to see exhibits on the cathedral s history and view original plaster models and design sketches.',
             price: 55,
             duration: 150,
-            userId: '636f1edc14f79b76f5e442bb',
+            userId: '637e5f6eb770505b2535a176',
         },
         {
             id: 'tourist4',
-            citild: '636fca0425d63341f230ebc2',
+            cityId: '637e6148453168af4b0456d9',
             name: 'Sightseeing tour of the city of Barcelona',
             photo: [
                 'https://media.tacdn.com/media/attractions-splice-spp-674x446/09/18/b2/7f.jpg',
@@ -60,11 +60,11 @@ itineraries.create(
             description: 'Discover the best of Barcelona on this comfortable, non-stop bus tour from City Sightseeing. Choose between a 1-day or 2-day pass, relax on the open-top double-decker bus and enjoy your own sightseeing itinerary as you travel along various routes and learn about the landmarks through on-board narration.',
             price: 0,
             duration: 0,
-            userId: '636f1edc14f79b76f5e442bc',
+            userId: '637e5f6eb770505b2535a176',
         },
         {
             id: 'tourist5',
-            citild: '636fca0425d63341f230ebc3',
+            cityId: '637e6148453168af4b0456da',
             name: ' Great Wall of China from Beijing',
             photo: [
                 'https://media.tacdn.com/media/attractions-splice-spp-674x446/07/a2/6e/67.jpg',
@@ -74,11 +74,11 @@ itineraries.create(
             description: 'Enhance your experience of one of Chinas greatest architectural feats on a small group tour of the Great Wall of China from Beijing. Accompanied by an expert guide, explore the ancient Mutianyu section of the wall and ascend the Ming Dynasty watchtowers for panoramic views of the spectacular surrounding landscape.',
             price: 120,
             duration: 480,
-            userId: '636f1edc14f79b76f5e442b9',
+            userId: '637e5f6eb770505b2535a174',
         },
         {
             id: 'tourist6',
-            citild: '636fca0425d63341f230ebc3',
+            cityId: '637e6148453168af4b0456da',
             name: 'Forbidden City (Palace Museum)',
             photo: [
                 'https://media.tacdn.com/media/attractions-splice-spp-674x446/09/c2/0c/74.jpg',
@@ -88,7 +88,7 @@ itineraries.create(
             description: 'The Forbidden City, or Palace Museum, is the largest palace complex in the world, with more than 800 buildings and some 8,000 rooms in the heart of Beijing. Considered off-limits to visitors for some five centuries, today this UNESCO World Heritage Site is one of the citys most popular attractions.',
             price: 55,
             duration: 240,
-            userId: '636f1edc14f79b76f5e442ba',
+            userId: '637e5f6eb770505b2535a174',
         }       
 )
 

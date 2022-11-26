@@ -4,7 +4,7 @@ const controller = {
     try {
       let new_itinerary = await Itinerary.create(req.body);
       res.status(201).json({
-        id: new_itinerary._id,
+        id: new_itinerary,
         success: true,
         message: "The Itinerary was created successfully",
       });
@@ -48,7 +48,6 @@ const controller = {
       });
     }
   },
-
   editItinerary: async (req, res) => {
     const { id } = req.params;
     try {
