@@ -1,15 +1,15 @@
 const City = require("../models/City");
+
 const controller = {
 
   create: async (req, res) => {
     console.log(req.body)
     try {
-
       let new_city = await City.create(req.body);
       res.status(201).json({
         city: new_city,
         success: true,
-        message: "City created successfully",
+        message: "Congrats! successfully City created ",
       });
     } catch (error) {
       res.status(400).json({
