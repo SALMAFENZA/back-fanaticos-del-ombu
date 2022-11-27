@@ -64,5 +64,58 @@ const controller = {
       });
     }
   },
+
+
+  read: async (req,res) => {
+    try{
+        let shows = await Show.read(req.body);
+        if(shows){
+            res.status(200).json({
+                response: shows,
+                success: true,
+                message: 'the shows was successfully found',
+            })
+        }else{
+            res.status(404).json({
+                success: false,
+                message: 'the shows was not found',
+            })
+        }
+    }catch(error) {
+        res.status(400).json({
+            success: false,
+            message: error.message,
+        });
+    }
+},
+
+getallbyshow: async (req, res) =>{
+  let query = {}
+  if (req.query.hotelId) {
+    query= {
+      hotelId:req.query.hotelId
+    };
+  }   
+  try {      
+    let shows = await Show.find(query);
+    if(shows){    
+    res.status(201).json({
+      response: shows,
+      success: true,
+      message: "The Show loaded successfully",
+    })}else{
+      res.status("404").json({
+        message: "No Show could be found",
+        success: false
+      });
+  }
+} catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+},
+
 };
 module.exports = controller;

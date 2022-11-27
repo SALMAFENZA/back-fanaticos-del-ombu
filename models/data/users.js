@@ -1,8 +1,9 @@
+
 let users = [
   {
     name: "Eric",
     lastName: "Rodriguez",
-    role: "admmin",
+    role: "admin",
     photo:
       "https://img.freepik.com/vector-premium/icono-perfil-avatar_188544-4755.jpg?w=2000",
     age: 23,
@@ -15,7 +16,7 @@ let users = [
   {
     name: "Erica",
     lastName: "Perez",
-    role: "admmin",
+    role: "admin",
     photo:
       "https://img.freepik.com/vector-premium/icono-perfil-avatar_188544-4755.jpg?w=2000",
     age: 25,
@@ -28,7 +29,7 @@ let users = [
   {
     name: "Leandro",
     lastName: "Gianelli",
-    role: "admmin",
+    role: "admin",
     photo:
       "https://img.freepik.com/vector-premium/icono-perfil-avatar_188544-4755.jpg?w=2000",
     age: 25,
@@ -41,7 +42,7 @@ let users = [
   {
     name: "Sebastian",
     lastName: "Fenza",
-    role: "admmin",
+    role: "admin",
     photo:
       "https://img.freepik.com/vector-premium/icono-perfil-avatar_188544-4755.jpg?w=2000",
     age: 26,
