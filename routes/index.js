@@ -4,7 +4,7 @@ let cities= require('./cities')
 let itineraries= require('./itineraries')
 
 router.use('/api/itineraries',itineraries)
-router.use('/api/users',users),
+router.use('/api/auth',users),
 router.use('/api/cities',cities)
 
 module.exports = router;
