@@ -21,7 +21,7 @@ const schema = joi.object({
         .messages({
             'any.required': 'Continent form required',
             'string.empty': 'Full continent form required',
-            'string.min': 'continent too short',
+            'string.min': 'continent too short'
         }),
     photo:joi
     .string()
@@ -44,9 +44,7 @@ const schema = joi.object({
         .string()
         .required()
         .messages({
-            'any.required': 'UserID form required',
-            'string.empty': 'UserID form must be filled',
-            'string.base': 'UserID must be a string',
+            'any.required': 'UserID form required',            
         }),
 })
 
