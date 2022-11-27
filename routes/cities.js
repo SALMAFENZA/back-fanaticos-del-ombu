@@ -4,7 +4,7 @@ const validator = require('../middlewares/validator')
 const schema = require('../schemas/city')
 
 
-router.post(((validator(schema)),create)),
+router.post('/' , validator(schema),create),
 router.get('/',getAll),
 
 router.get('/:id',getOne),
