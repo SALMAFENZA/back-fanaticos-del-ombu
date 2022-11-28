@@ -5,7 +5,7 @@ const bcryptjs = require('bcryptjs')
 const crypto = require('crypto')
 const accountVerificationEmail = require('../middlewares/accountVerificationEmail')
 const { userSignedUpResponse, userNotFoundResponse, invalidCredentialsResponse, userSignedOutResponse } = require('../response/auth')
-
+const jwt = require('jsonwebtoken')
 
 
 
@@ -27,6 +27,41 @@ return userSignedUpResponse(req, res)
     next(error)
 }
 },
+login: async (req, res, next) => {
+    let { password } = req.body
+    let { user } = req
+    try {
+        console.log(password , user.password)
+        const verify = bcryptjs.compareSync(password, user.password)
+        console.log(verify)
+        if (verify) {
+            const location_user = await User.findOneAndUpdate({ email: user.email }, { logged: true }, { new: true })
+            const token = jwt.sign(
+                { id: location_user.id, name: location_user.name, photo: location_user.photo, logged: location_user.logged },
+                process.env.KEY_JWT,
+                { expiresIn: 60 * 60 * 24 }
+            )
+
+            user = {
+                name: user.name,
+                role: user.role,
+                email: user.email,
+                photo: user.photo,
+                age: user.age,
+                id: user.id
+            }
+            return res.status(200).json({
+                response: { user, token },
+                success: true,
+                message: 'Welcome ' + user.name
+            })
+        }
+        return invalidCredentialsResponse(req, res)
+    } catch (error) {
+        next(error)
+    }
+}
+
 }
 //para usarlo en otros lados lo exporto
 module.exports = controller 
