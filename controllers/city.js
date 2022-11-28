@@ -4,7 +4,7 @@ const controller = {
   create: async (req, res) => {
     console.log(req.body)
     try {
-
+console.log(req.body)
       let new_city = await City.create(req.body);
       res.status(201).json({
         city: new_city,
