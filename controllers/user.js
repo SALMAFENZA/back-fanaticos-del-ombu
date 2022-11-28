@@ -60,8 +60,17 @@ login: async (req, res, next) => {
     } catch (error) {
         next(error)
     }
-}
-
+},
+logout: async (req, res, next) => {
+    const { email } = req.user
+    console.log(email)
+    try {
+        await User.findOneAndUpdate({ email },{ logged: false },{ new: true })
+        return userSignedOutResponse(req, res)
+    } catch (error) {
+        next(error)
+    }
+},
 }
 //para usarlo en otros lados lo exporto
 module.exports = controller 
