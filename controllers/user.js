@@ -70,6 +70,57 @@ logout: async (req, res, next) => {
     } catch (error) {
         next(error)
     }
+}, 
+findMe: async (req, res) => {
+    let id = req.params.id;
+    try {
+        let user = await User.findOne({ _id: id })
+        if (user) {
+            res.status(200).json({
+                response: user,
+                success: true,
+                message: "User find successfully",
+            });
+        } else {
+            res.status(400).json({
+                success: false,
+                message: error.message,
+            });
+        }
+    } catch (error) {
+        res.status(404).json({
+            success: false,
+            message: error.message,
+        });
+    }
+},
+editUser: async (req, res) => {
+    let id = req.params.id;
+    let { name, lastName, photo, age, email, password } = req.body
+    password = bcryptjs.hashSync(password, 10)
+    console.log(password)
+    console.log(id)
+    try {
+        let user = await User.findOneAndUpdate({_id: id}, { name, lastName, photo, age, email, password }, {new: true})
+        
+        if (user) {
+            res.status(200).json({
+                response: user,
+                success: true,
+                message: "User update successfully",
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+                message: error.message,
+            });
+        }
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            message: error.message,
+        });
+    }
 },
 }
 //para usarlo en otros lados lo exporto
