@@ -100,6 +100,7 @@ console.log(req.body)
     try {
       await City.findOneAndDelete({ _id:id })
       res.status(200).json({
+        response: id,
         success: true,
         message: "Deleted",
       });
