@@ -6,6 +6,8 @@ const crypto = require('crypto')
 const accountVerificationEmail = require('../middlewares/accountVerificationEmail')
 const { userSignedUpResponse, userNotFoundResponse, invalidCredentialsResponse, userSignedOutResponse } = require('../response/auth')
 const jwt = require('jsonwebtoken')
+const { LINK_BACK } = process.env
+
 
 
 
@@ -26,6 +28,29 @@ return userSignedUpResponse(req, res)
 }catch(error){
     next(error)
 }
+},
+verifyMail: async (req, res) => {
+    const {code} = req.params
+    try {
+        let user = await User.findOne({ code })
+        if (user) {
+            user.verified = true
+            await user.save()
+            res.status("200").redirect(301, LINK_BACK)
+
+        } else {
+            res.status("404").json({
+                message: "This email does not belong to an account ❌",
+                success: false,
+            })
+        }
+    } catch (error) {
+        console.log(error)
+        res.status("400").json({
+            message: "Error",
+            success: false,
+        })
+    }
 },
 login: async (req, res, next) => {
     let { password } = req.body
