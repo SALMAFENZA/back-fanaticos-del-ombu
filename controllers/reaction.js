@@ -18,11 +18,16 @@ const controller = {
     }
   },
   delUserId: async (req, res) => {
-    let { userId, id } = req.body;
-    console.log(userId, id);
+    let { id } = req.body;
+    let { user } = req
+    let userId = user.id
+    console.log(user, id , userId);
+
+
     try {
       await Reaction.updateOne({ _id: id }, { $pull: { userId: userId } });
       res.status(201).json({
+        response: userId,
         success: true,
         message: "The Reaction was removed successfully",
       });
@@ -34,8 +39,12 @@ const controller = {
     }
   },
   addUserId: async (req, res) => {
-    let { userId, id } = req.body;
-    console.log(userId, id);
+    let { id } = req.body;
+    let { user } = req
+    let userId = user.id
+    console.log(user, id , userId);
+    
+
     try {
       await Reaction.updateOne({ _id: id }, { $push: { userId: userId } });
       res.status(201).json({
@@ -51,6 +60,12 @@ const controller = {
   },
   getAll: async (req, res) => {
     let query = {};
+   
+    if (req.query.userId) {
+      query = {
+        ...query,
+        userId: req.query.userId.split(",")};
+      }
 
     if (req.query.itineraryId) {
       query = {
@@ -65,8 +80,9 @@ const controller = {
         photo: 1,
       });
       if (reactions) {
+        console.log(reactions)
         res.status(200).json({
-          response: reactions.length,
+          response: reactions,
           success: true,
           message: `The itinerary has ${reactions.length} reactions`,
         });
@@ -84,7 +100,8 @@ const controller = {
     }
   },
   deleteReaction: async (req, res) => {
-    const { name } = req.body;
+    const { name } = req.body; 
+    
     try {
       await Reaction.findOneAndDelete({ name: name });
       res.status(200).json({
