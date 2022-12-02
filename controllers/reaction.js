@@ -46,7 +46,7 @@ const controller = {
         }
       } else {
         res.status(404).json({
-          message: "The reaction dont exist",
+          message: "The reaction does not exist",
           success: false,
         });
       }
