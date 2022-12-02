@@ -61,11 +61,8 @@ const controller = {
     let query = {};
 
     if (req.query.userId) {
-      query = {
-        ...query,
-        userId: req.query.userId.split(","),
-      };
-    }
+      query = { userId: req.query.userId };
+  }
 
     if (req.query.itineraryId) {
       query = {
@@ -75,10 +72,9 @@ const controller = {
     }
 
     try {
-      let reactions = await Reaction.find(query).populate("userId", {
-        name: 1,
-        photo: 1,
-      });
+      let reactions = await Reaction.find(query)
+      .populate({ path: 'userId', select: 'name lastName photo' })
+      .populate({ path: 'itineraryId', select: 'name photo _id' })
       if (reactions) {
         console.log(reactions);
         res.status(200).json({
