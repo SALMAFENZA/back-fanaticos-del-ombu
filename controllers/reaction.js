@@ -18,26 +18,22 @@ const controller = {
     }
   },
   addDelUserId: async (req, res) => {   
-    let Id = req.user.id;  //// Este es el "user" que nos devuelve el passport cuando acepta el "token"
+    let Id = req.user.id;  // Este es el "user" que nos devuelve el passport cuando acepta el "token"
     let id = req.params.id
 
-    ////// ------------ Luego de decidido como se buscará la reacción ------------ //////
-
-    
     try {
-      let reaction = await Reaction.findOne({ _id: id });   ////// Buscamos la reacción por la query (si no le paso query, las trae todas)
-
+      let reaction = await Reaction.findOne({ _id: id });  
       console.log(reaction)
-      if (reaction) {                                     /////// Si consiguió una reacción , entonces ejecuta lo siguiente
-        if (reaction.userId.includes(Id)) {               /////// Vemos si el usuario le dio like a esa reacción
-          await Reaction.findOneAndUpdate({ _id: id },{ $pull: { userId: req.user.id }});   ////// Si ya le dio like, quitarlo.
+      if (reaction) {
+        if (reaction.userId.includes(Id)) {              
+          await Reaction.findOneAndUpdate({ _id: id },{ $pull: { userId: req.user.id }});   // Si ya le dio like, lo va a quitar
           res.status(200).json({
             message: `User was remove from ${reaction.name} successfully`,
             success: true,
             reactioned: false,
           });
         } else {
-          await Reaction.findOneAndUpdate({ _id: id },{ $push: { userId: req.user.id }}); //// Si no le dio like, agregarlo
+          await Reaction.findOneAndUpdate({ _id: id },{ $push: { userId: req.user.id }}); // Si no le dio like, lo agrega
           res.status(200).json({
             message: `User was added to ${reaction.name}`,
             success: true,
@@ -58,6 +54,44 @@ const controller = {
     }
   },
   getAll: async (req, res) => {
+    let query = {};
+console.log(req.query)
+    if (req.query.userId) {
+      query = { userId: req.query.userId };
+  }
+
+    if (req.query.itineraryId) {
+      query = {
+        ...query,
+        itineraryId: req.query.itineraryId,
+      };
+    }
+
+    try {
+      let reactions = await Reaction.find(query)
+      .populate({ path: 'userId', select: 'name lastName photo' })
+      .populate({ path: 'itineraryId', select: 'name photo _id' })
+      if (reactions) {
+        console.log(reactions);
+        res.status(200).json({
+          response: reactions,
+          success: true,
+          message: `The itinerary has ${reactions.length} reactions`,
+        });
+      } else {
+        res.status("404").json({
+          message: "No reaction here",
+          success: false,
+        });
+      }
+    } catch (error) {
+      res.status(400).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  },
+  getAllByUser: async (req, res) => {
     let query = {};
 
     if (req.query.userId) {
